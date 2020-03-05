@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+{% block content %}
+    <div class="main">
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-md-12 inline">
+                    {% include 'myapp/post_template_small.html' with objects=post %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

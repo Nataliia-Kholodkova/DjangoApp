@@ -1,0 +1,10 @@
+<div class="container">
+    <h3>{{ post.title }}</h3>
+    {% if post.images.all %}
+        <img class="img-thumbnail thumbnail rounded float-left" style="width: 30%; padding: 5px"
+             src={{ post.images.all.0.image.url }}>
+    {% endif %}
+    {{ post.text|truncatewords:25 }} <a href="{% url 'myapp:show_post' post.pk %}">Read more...</a>
+    <p>{{ post.created_date }}</p>
+</div>
+

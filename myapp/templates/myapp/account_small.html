@@ -1,0 +1,13 @@
+<img class="card-img-top" src="{{ user.profile.photo.url }}">
+<div class="card-body">
+    {% if user.first_name or user.last_name %}
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+    {% endif %}
+    {% if user.profile.city %}
+        <p class="card-text">{{ user.profile.city }}</p>
+    {% endif %}
+    {% if request.user.pk == user.pk and request.user.is_authenticated %}
+        <a href="{% url 'myapp:edit_account' %}" class="btn btn-primary">Edit account</a>
+        <a href="{% url 'myapp:add_post' %}" class="btn btn-primary">Add new post</a>
+    {% endif %}
+</div>

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block head %}
+    <title>Post</title>
+{% endblock %}
+{% block content %}
+    <div class="row" style="width: 100%">
+        {% if not posts %}
+            <h3>Nothing found</h3>
+        {% endif %}
+        <div class="main card" style="width: 50%">
+            {% for post in posts %}
+                {% include 'myapp/post_template_small.html' with objects=post %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

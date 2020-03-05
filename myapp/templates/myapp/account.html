@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block head %}
+    <title>Account</title>
+{% endblock %}
+{% block content %}
+    <div class="row" style="width: 100%">
+        <div class="sidebar inline float-left" style="width: 40%">
+            <div class="card">
+                {% include 'myapp/account_small.html' with objects=user %}
+                <p style="padding: 5px; margin-left: 10px" class="card-text">{{ user.profile.emotions }}</p>
+            </div>
+        </div>
+        <div class="main card" style="width: 50%">
+            {% for post in posts %}
+                {% include 'myapp/post_template_small.html' with objects=post %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
